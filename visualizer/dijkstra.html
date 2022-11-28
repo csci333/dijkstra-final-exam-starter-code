@@ -121,7 +121,7 @@
                             },
                             'label': function (element) {
                                 const data = element.data();
-                                return data.weight.toFixed(1);
+                                return data.weight ? data.weight.toFixed(1) : 0;
                             },
                             'target-arrow-shape': 'triangle',
                             'line-color': function (element) {

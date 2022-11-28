@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.List;
+
 import org.json.simple.JSONObject;
 
 public class Node {
@@ -5,21 +8,32 @@ public class Node {
 	public String name;
 	public Node p;
 	public float d;
+	public List<Edge> outboundEdges = new LinkedList<Edge>();
 	
 	public Node(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}
 	
-	// TODO: Implement
+	// Done for you
 	public void addEdge(Edge edge) {
-		
+		this.outboundEdges.add(edge);	
 	}
 	
-	// TODO: Implement
+	// Implemented for you:
 	public Edge getBackEdge(Node node) {
 		return null;
 	}
+	
+	// Implemented for you:
+	@Override
+	public String toString() {
+		String edgeString = this.id + "\t";
+		edgeString += this.name + "\t";
+		edgeString += (this.p != null) ? this.p.name : '*';
+		return edgeString;
+	}
+	
 	
 	@SuppressWarnings("unchecked")
 	public JSONObject toJSON() {
@@ -32,13 +46,5 @@ public class Node {
 		return entry;
 	}
 		
-	
-	// Implemented for you:
-	public String toString() {
-		String edgeString = this.id + "\t";
-		edgeString += this.name + "\t";
-		edgeString += (this.p != null) ? this.p.name : '*';
-		return edgeString;
-	}
 
 }
